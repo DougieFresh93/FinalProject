@@ -7,7 +7,7 @@ package finalproject;
 
 /**
  *
- * @author Doug
+ * @author Brennan, Doug
  */
 public class FinalProject {
 
@@ -15,7 +15,7 @@ public class FinalProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println("Doug is a faggot because he likes ESO");
     }
     
 }
