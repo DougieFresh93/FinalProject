@@ -1,33 +1,29 @@
-package finalproject;
 
+package finalproject;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 /**
  *
- * @author Doug, Brennan,
+ * @author stone.douglas.g
  */
-import java.io.*;
-import java.net.*;
-import java.util.Scanner;
-import javax.swing.JFrame;
-import javax.swing.JComponent;
-
-public class FinalProject {
-    //Put this all into a GUI
-    public static void main(String[] args) {
-        JFrame  frame = new JFrame();
-       //frame.setSize(800,800);
-       frame.setTitle("Woah i'm a window title READ ME");
-       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       frame.setVisible(true);
-       frame.add(new GUI());
-        
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter the URL of the RSS feed you'd like to add");
-        String URL = input.next();
-        //URL to read
-        System.out.println(readRSS(URL));
-
-    }
-    //Function that reads the RSS
+public class GUI extends JComponent{
+     String URL = JOptionPane.showInputDialog(this  ,"Enter in some text:");
+     
+    public void paintComponent(Graphics g){
+         
+         //String URL = JOptionPane.showInputDialog(this  ,"Enter in some text:");
+         //String URL = input.next();
+         Graphics2D gfx = (Graphics2D) g;
+         JOptionPane.showMessageDialog(this  ,readRSS(URL));
+         
+     }
     public static String readRSS(String url) {
         try {
             URL rss = new URL(url);
@@ -61,5 +57,4 @@ public class FinalProject {
         }
         return null;
     }
-
 }
