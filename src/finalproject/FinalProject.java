@@ -20,15 +20,15 @@ public class FinalProject {
        frame.setVisible(true);
        frame.add(new GUI());
         
-        Scanner input = new Scanner(System.in);
+       /* Scanner input = new Scanner(System.in);
         System.out.println("Enter the URL of the RSS feed you'd like to add");
         String URL = input.next();
         //URL to read
-        System.out.println(readRSS(URL));
+        System.out.println(readRSS(URL));*/
 
     }
     //Function that reads the RSS
-    public static String readRSS(String url) {
+   /* public static String readRSS(String url) {
         try {
             URL rss = new URL(url);
             BufferedReader read = new BufferedReader(new InputStreamReader(rss.openStream()));
@@ -60,6 +60,6 @@ public class FinalProject {
             System.out.println("Error in reading RSS");
         }
         return null;
-    }
+    }*/
 
 }

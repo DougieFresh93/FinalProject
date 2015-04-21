@@ -14,17 +14,20 @@ import javax.swing.JOptionPane;
  * @author stone.douglas.g
  */
 public class GUI extends JComponent{
-     String URL = JOptionPane.showInputDialog(this  ,"Enter in some text:");
-     
+    
+   
+     String URL = JOptionPane.showInputDialog(this  ,"Enter the RSS Feed URL:");
+    
     public void paintComponent(Graphics g){
          
-         //String URL = JOptionPane.showInputDialog(this  ,"Enter in some text:");
-         //String URL = input.next();
-         Graphics2D gfx = (Graphics2D) g;
+      
+        
+         //Graphics2D gfx = (Graphics2D) g;
          JOptionPane.showMessageDialog(this  ,readRSS(URL));
          
      }
     public static String readRSS(String url) {
+         JOptionPane.setRootFrame(null);
         try {
             URL rss = new URL(url);
             BufferedReader read = new BufferedReader(new InputStreamReader(rss.openStream()));
@@ -38,7 +41,7 @@ public class GUI extends JComponent{
                    //replaces title with blank
                      //sometimes depending on the size of 
                      //the blank some of the title might be cut off no idea why
-                    temp = temp.replace("<title>", "        ");
+                    temp = temp.replace("<title>", "                     ");
                     int lPos = line.indexOf("</title>");
                    //replaces blank with whats betwenn Opening and
                    //closing tags 
