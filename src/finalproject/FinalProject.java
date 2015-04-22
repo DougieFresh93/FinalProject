@@ -14,7 +14,7 @@ public class FinalProject {
     //Put this all into a GUI
     public static void main(String[] args) {
         JFrame  frame = new JFrame();
-       //frame.setSize(800,800);
+       frame.setSize(800,800);
        frame.setTitle("Woah i'm a window title READ ME");
        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        frame.setVisible(true);
