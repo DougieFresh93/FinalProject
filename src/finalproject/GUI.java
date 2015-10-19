@@ -26,20 +26,16 @@ public class GUI extends javax.swing.JFrame {
             String line;
             //Reads lines from URL
             while ((line = read.readLine()) != null) {
-                if (line.contains("<title>")) {
-                    int fPos = line.indexOf("<title>");
-                    String temp = line.substring(fPos);
-                   //replaces title with blank
-                    //sometimes depending on the size of 
-                    //the blank some of the title might be cut off no idea why
-                    temp = temp.replace("<title>", "        ");
-                    int lPos = line.indexOf("</title>");
-                   //replaces blank with whats betwenn Opening and
-                    //closing tags 
-                    temp = temp.substring(0, lPos);
-                    source += temp + "\n";
-                }
-            }
+                 int titleEndIndex = 0;
+                 int titleStartIndex = 0;
+            while (titleStartIndex >= 0) {
+                titleStartIndex = line.indexOf("<title>", titleEndIndex);
+            if (titleStartIndex >= 0) {
+               titleEndIndex = line.indexOf("</title>", titleStartIndex);
+              source += line.substring(titleStartIndex + "<title>".length(), titleEndIndex) + "\n";
+        }
+    }
+}
             read.close();
             return source;
             //Catches if URL is not a valid URL
@@ -112,7 +108,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(113, 113, 113)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

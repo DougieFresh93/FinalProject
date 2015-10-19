@@ -2,7 +2,7 @@ package finalproject;
 
 /**
  *
- * @author Doug, Brennan,
+ * @author Douglas Stone
  */
 import java.io.*;
 import java.net.*;
@@ -27,7 +27,7 @@ public class FinalProject {
 
     //Function that reads the RSS
 
-    public static String readRSS(String url) {
+  /*  public static String readRSS(String url) {
         try {
             URL rss = new URL(url);
             String source;
@@ -60,6 +60,6 @@ public class FinalProject {
             System.out.println("Error in reading RSS");
         }
         return null;
-    }
+    }*/
 
 }
