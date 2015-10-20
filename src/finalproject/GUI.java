@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
  * @author stone.douglas.g
  */
 public class GUI extends javax.swing.JFrame {
+    
 
     private String readRSS(String Url) {
         try {
@@ -41,11 +42,11 @@ public class GUI extends javax.swing.JFrame {
             //Catches if URL is not a valid URL
         } catch (MalformedURLException ue) {
             // System.out.println("Not a valid URL");
-            JOptionPane.showMessageDialog(jTextField1, "Not valid URL");
+            JOptionPane.showMessageDialog(input, "Not valid URL");
             //catches if something goes wrong reading RSS
         } catch (IOException ioe) {
             // System.out.println("Error in reading RSS");
-            JOptionPane.showMessageDialog(jTextField1, "Error in reading RSS");
+            JOptionPane.showMessageDialog(input, "Error in reading RSS");
         }
         return null;
     }
@@ -66,71 +67,128 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialog = new javax.swing.JDialog();
+        add = new javax.swing.JButton();
+        cancel = new javax.swing.JButton();
+        input = new javax.swing.JTextField();
+        dLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        outputField = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
+        menuBar = new javax.swing.JMenuBar();
+        dropMenu = new javax.swing.JMenu();
+        addFeed = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        dialog.setMinimumSize(new java.awt.Dimension(400, 250));
+        dialog.setPreferredSize(new java.awt.Dimension(400, 250));
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jButton1.setText("Add");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        add.setText("Add ");
+        add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Enter RSS feed URL");
+        cancel.setText("Cancel");
+        cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelActionPerformed(evt);
+            }
+        });
+
+        dLabel.setText("Enter Feed");
+
+        javax.swing.GroupLayout dialogLayout = new javax.swing.GroupLayout(dialog.getContentPane());
+        dialog.getContentPane().setLayout(dialogLayout);
+        dialogLayout.setHorizontalGroup(
+            dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogLayout.createSequentialGroup()
+                .addGroup(dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogLayout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(add)
+                        .addGap(52, 52, 52)
+                        .addComponent(cancel))
+                    .addGroup(dialogLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(input, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)))
+                .addContainerGap(97, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(dLabel)
+                .addGap(172, 172, 172))
+        );
+        dialogLayout.setVerticalGroup(
+            dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogLayout.createSequentialGroup()
+                .addContainerGap(81, Short.MAX_VALUE)
+                .addComponent(dLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(input)
+                .addGap(18, 18, 18)
+                .addGroup(dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(add)
+                    .addComponent(cancel))
+                .addGap(76, 76, 76))
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        outputField.setEditable(false);
+        outputField.setColumns(20);
+        outputField.setRows(5);
+        jScrollPane1.setViewportView(outputField);
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Feeds");
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jTree1.setToolTipText("");
+        jScrollPane2.setViewportView(jTree1);
+
+        dropMenu.setText("Menu");
+
+        addFeed.setText("Add Feed");
+        addFeed.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addFeed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFeedActionPerformed(evt);
+            }
+        });
+        dropMenu.add(addFeed);
+
+        menuBar.add(dropMenu);
+
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jTextField1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(100, 100, 100)
-                                .addComponent(jLabel1)
-                                .addGap(0, 112, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(227, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void addFeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFeedActionPerformed
+      dialog.setVisible(true);    }//GEN-LAST:event_addFeedActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String Url = jTextField1.getText();
-        jTextArea1.append(readRSS(Url) + "\n");
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+            String Url = input.getText();
+        outputField.append(readRSS(Url) + "\n");
+    }//GEN-LAST:event_addActionPerformed
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+        input.setText(" ");
+        dialog.setVisible(false);
+    }//GEN-LAST:event_cancelActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -165,11 +223,18 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton add;
+    private javax.swing.JMenuItem addFeed;
+    private javax.swing.JButton cancel;
+    private javax.swing.JLabel dLabel;
+    private javax.swing.JDialog dialog;
+    private javax.swing.JMenu dropMenu;
+    private javax.swing.JTextField input;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTree jTree1;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JTextArea outputField;
     // End of variables declaration//GEN-END:variables
 
 }

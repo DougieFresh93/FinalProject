@@ -17,7 +17,7 @@ public class FinalProject {
     public static void main(String[] args) {
         GUI frame = new GUI();
         frame.setVisible(true);
-
+        
         /* Scanner input = new Scanner(System.in);
          System.out.println("Enter the URL of the RSS feed you'd like to add");
          String URL = input.next();
